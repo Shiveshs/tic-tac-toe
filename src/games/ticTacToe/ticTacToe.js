@@ -72,7 +72,7 @@ const TicTacToe = () => {
   };
 
   return (
-    <div style={{ paddingTop: "20%" }}>
+    <div style={{ paddingTop: "16%" }}>
       <h1>TIC TAC TOE</h1>
       {board.map((row, rowIndex) => {
         return (
