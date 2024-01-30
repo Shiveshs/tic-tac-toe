@@ -1,0 +1,27 @@
+.game-container {
+  position: absolute;
+  top: 30%;
+  left: 45%;
+  right: 45%;
+}
+
+.game-heading {
+  margin: 0;
+  padding: 10%;
+}
+
+.game-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  height: 60px;
+  width: 60px;
+  color: white;
+}

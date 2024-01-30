@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./ticTacToe.css";
 
 const TicTacToe = () => {
   const createBoard = (size) => {
@@ -72,31 +73,16 @@ const TicTacToe = () => {
   };
 
   return (
-    <div style={{ paddingTop: "16%" }}>
-      <h1>TIC TAC TOE</h1>
+    <div className="game-container">
+      <h1 className="game-heading">TIC TAC TOE</h1>
       {board.map((row, rowIndex) => {
         return (
-          <div
-            key={rowIndex}
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <div key={rowIndex} className="game-row">
             {row.map((cell, columnIndex) => {
               return (
                 <div
                   key={columnIndex}
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    border: "1px solid white",
-                    height: "50px",
-                    width: "50px",
-                    color: "white",
-                  }}
+                  className="game-cell"
                   onClick={() => clickHandler(rowIndex, columnIndex)}
                 >
                   {cell}
