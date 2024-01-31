@@ -1,13 +1,14 @@
+/* Default styling */
 .game-container {
-  position: absolute;
-  top: 30%;
-  left: 45%;
-  right: 45%;
+  position: relative; /* Changed to relative for better responsiveness */
+  margin: 5% auto; /* Center the game container */
+  max-width: 600px; /* Set a maximum width for better readability on larger screens */
 }
 
 .game-heading {
   margin: 0;
-  padding: 10%;
+  padding: 10px;
+  text-align: center; /* Center the text */
 }
 
 .game-row {
@@ -20,8 +21,37 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid white;
+  border: 2px solid #333; /* Slightly thicker border for better visibility */
   height: 60px;
   width: 60px;
-  color: white;
+  font-size: 1.2em; /* Increased font size for better readability */
+  color: #333; /* Changed text color for better contrast */
+  background-color: #eee; /* Light background for better visibility */
+  cursor: pointer; /* Add cursor pointer for clickable cells */
+  transition: background-color 0.3s ease; /* Smooth transition for better interaction */
+}
+
+/* Hover effect on game cells */
+.game-cell:hover {
+  background-color: #ddd; /* Slightly change the background color on hover */
+}
+
+/* Media query for small devices */
+@media only screen and (max-width: 600px) {
+  .game-container {
+    margin: 10% auto; /* Increase margin for small devices */
+  }
+
+  .game-heading {
+    padding: 5px; /* Decrease padding for smaller screens */
+  }
+
+  .game-cell {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+/* Media query for medium devices */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
 }
