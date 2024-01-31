@@ -59,32 +59,48 @@ const TicTacToe = () => {
   const [winner, setWinner] = useState("");
 
   const clickHandler = (row, column) => {
-    // console.log("row", row, "column", column, "board", board);
-    board[row][column] = currUser;
-    if (checkWin(board)) {
-      setBoard(createBoard(3));
-      setCurrUser("X");
-      setWinner(currUser);
-      console.log(`${currUser} Wins`);
-    } else {
-      currUser === "X" ? setCurrUser("O") : setCurrUser("X");
-      setBoard(...[board]);
+    if (!board[row][column]) {
+      console.log("board", board);
+      board[row][column] = currUser;
+      console.log(
+        "if condition",
+        board.flat().filter((cell) => cell).length ===
+          board.length * board.length
+      );
+      if (checkWin(board)) {
+        setBoard(createBoard(3));
+        setCurrUser("X");
+        setWinner(currUser);
+        console.log(`${currUser} Wins`);
+      } else {
+        if (
+          board.flat().filter((cell) => cell).length ===
+          board.length * board.length
+        ) {
+          setBoard(createBoard(3));
+          setCurrUser("X");
+          setWinner("Draw");
+          console.log("It's a Draw");
+        } else {
+          currUser === "X" ? setCurrUser("O") : setCurrUser("X");
+          setBoard(...[board]);
+        }
+      }
     }
   };
 
   return (
-    <div className="game-container">
-      <h1 className="game-heading">TIC TAC TOE</h1>
+    <div className='game-container'>
+      <h1 className='game-heading'>TIC TAC TOE</h1>
       {board.map((row, rowIndex) => {
         return (
-          <div key={rowIndex} className="game-row">
+          <div key={rowIndex} className='game-row'>
             {row.map((cell, columnIndex) => {
               return (
                 <div
                   key={columnIndex}
-                  className="game-cell"
-                  onClick={() => clickHandler(rowIndex, columnIndex)}
-                >
+                  className='game-cell'
+                  onClick={() => clickHandler(rowIndex, columnIndex)}>
                   {cell}
                 </div>
               );
@@ -92,7 +108,11 @@ const TicTacToe = () => {
           </div>
         );
       })}
-      {winner && <h1>Player {winner} Wins</h1>}
+      {winner && winner !== "Draw" ? (
+        <h1>Last Game: Player {winner} Wins</h1>
+      ) : (
+        <h1> It's a Draw. Play again.</h1>
+      )}
     </div>
   );
 };

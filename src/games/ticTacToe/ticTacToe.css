@@ -39,13 +39,9 @@
 /* Media query for small devices */
 @media only screen and (max-width: 600px) {
   .game-container {
-    margin: 10% auto; /* Increase margin for small devices */
+    margin: 40% auto; /* Increase margin for small devices */
   }
-
-  .game-heading {
-    padding: 5px; /* Decrease padding for smaller screens */
-  }
-
+  
   .game-cell {
     height: 40px;
     width: 40px;
